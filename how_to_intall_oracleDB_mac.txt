@@ -34,10 +34,11 @@ services:
         shm_size: '2gb'
 
 
-7)  docker-compose up && docker container ps
+7)  run the command to  deploy image to docker.
+docker-compose up && docker container ps
 
 
-8) sql developer
+8) now you can access oracle db by using sql developer.
 https://www.oracle.com/tools/downloads/sqldev-v192-downloads.html
 
 user: system
