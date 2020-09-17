@@ -3,18 +3,23 @@
 https://www.oracle.com/database/technologies/xe-prior-releases.html
 
 
-2) git clone https://github.com/oracle/docker-images.git
+2) do the below git clone . and copy the rpm file of first step into the correct version folder.
 
-cd /Users/priyanksharma/Desktop/onlineJava/Docker/docker-images/OracleDatabase/SingleInstance/dockerfiles
+git clone https://github.com/oracle/docker-images.git
+cd ~/docker-images/OracleDatabase/SingleInstance/dockerfiles
 
-3) run 
+
+3) install docker on your mac
+https://docs.docker.com/docker-for-mac/install/
+
+4) run below command from dir ~/docker-images/OracleDatabase/SingleInstance/dockerfiles.
 
 ./buildDockerImage.sh -x -v 11.2.0.2  -o --shm-size=1g
 
-4) it will create a docker image
+5) it will create a docker image
 oracle/database:11.2.0.2-xe
 
-5) create docker-compose.yml 
+5) run the image on docker by creating a  docker-compose.yml file.
 version: "3.5"
 services:
     oracle:
@@ -27,9 +32,6 @@ services:
           context: .
           shm_size: '2gb'
         shm_size: '2gb'
-
-6) install docker on your mac
-https://docs.docker.com/docker-for-mac/install/
 
 
 7)  docker-compose up && docker container ps
