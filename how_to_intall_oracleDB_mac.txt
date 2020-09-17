@@ -1,0 +1,48 @@
+
+1) download oracle 11g from below and download the RPM file.
+https://www.oracle.com/database/technologies/xe-prior-releases.html
+
+
+2) git clone https://github.com/oracle/docker-images.git
+
+cd /Users/priyanksharma/Desktop/onlineJava/Docker/docker-images/OracleDatabase/SingleInstance/dockerfiles
+
+3) run 
+
+./buildDockerImage.sh -x -v 11.2.0.2  -o --shm-size=1g
+
+4) it will create a docker image
+oracle/database:11.2.0.2-xe
+
+5) create docker-compose.yml 
+version: "3.5"
+services:
+    oracle:
+        image: oracle/database:11.2.0.2-xe
+        ports:
+            - "11521:1521"
+        environment:
+            - ORACLE_PWD=testing12345
+        build:
+          context: .
+          shm_size: '2gb'
+        shm_size: '2gb'
+
+6) install docker on your mac
+https://docs.docker.com/docker-for-mac/install/
+
+
+7)  docker-compose up && docker container ps
+
+
+8) sql developer
+https://www.oracle.com/tools/downloads/sqldev-v192-downloads.html
+
+user: system
+password: testing12345
+sid: xe
+db/port :  localhost:11521
+
+
+
+
