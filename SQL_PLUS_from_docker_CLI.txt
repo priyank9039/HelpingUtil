@@ -1,0 +1,50 @@
+###############################  SQL*PLUS ##############################
+
+
+1) docker to do sqlplus.
+
+sqlplus system/testing12345@xe
+
+exit
+
+
+
+################  SQL*PLUS  import/ ###############
+
+----------------- export steps ( develpoer machine )
+
+1) open docker cli then go to  
+
+cd /u01/app/oracle/product/11.2.0/xe/bin
+
+2) type command 
+
+ exp onlineexam/student@xe
+
+3) created a dump file. which is in docker location.
+
+/u01/app/oracle/product/11.2.0/xe/bin/techQuizApp.dmp
+
+
+4) to get this in to local pc. run the local terminal then 
+
+ sudo docker ps
+ sudo docker cp <docker-id>:/u01/app/oracle/product/11.2.0/xe/bin/techQuizApp.dmp .
+
+5) now you can see the file locally.
+
+
+
+--------------------- import steps  ( client machine )
+
+1) now we have dmp file. but it in bin folder.
+
+/u01/app/oracle/product/11.2.0/xe/bin/techQuizApp.dmp
+
+2) run the below comand after creating the same user on client machine  . form the bin folder
+
+cd /u01/app/oracle/product/11.2.0/xe/bin/
+
+imp onlineexam/student@xe
+
+
