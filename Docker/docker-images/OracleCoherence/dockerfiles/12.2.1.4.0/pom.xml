@@ -36,7 +36,7 @@
     <jackson.version>2.9.10</jackson.version>
     <jackson.databind.version>2.9.10.1</jackson.databind.version>
     <javax.ws.rs.version>2.0.1</javax.ws.rs.version>
-    <jersey.version>2.22.4</jersey.version>
+    <jersey.version>2.46</jersey.version>
   </properties>
 
   <dependencies>
